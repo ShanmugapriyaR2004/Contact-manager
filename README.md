@@ -1,1 +1,1 @@
-https://resonant-gumption-777e98.netlify.app
+https://shiny-croissant-21b544.netlify.app

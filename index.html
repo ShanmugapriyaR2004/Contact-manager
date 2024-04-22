@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <form class="cont" onsubmit="return validate_contact()" method="get">
+        <label for="name"></label>
+        <input type="text" id="name" name="name" placeholder="Enter the name">
+        <label for="number"></label>
+        <input type="text" id="number" name="number" placeholder="Enter the number">
+        <input type="submit" name="submit" id="submit">
+    </form>
+    <div class="table">
+        <button id="getdata">Get data</button>
+        <table id="table">
+            <tr>
+                <th>Name</th>
+                <th> Contact Number</th>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

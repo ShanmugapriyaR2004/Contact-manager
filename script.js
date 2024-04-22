@@ -9,7 +9,9 @@
 
 
     Button.addEventListener('click',() =>{
+        const id = Math.floor(Math.random()*50)
         const user = {
+            id: `${id}`,
             name:`${Name.value}`,
             number:`${Number.value}`
         }
@@ -22,6 +24,7 @@
             const newRow = `<tr>
             <td>${e.name}</td>
             <td>${e.number}</td>
+            <td><button onclick="handleDelete(${e.id})">Delete</button></td>
             </tr>`
             Table.innerHTML += newRow
         })
@@ -32,10 +35,10 @@
             const response = await fetch(API_URL, {
                 method:'GET',
                 headers: {
-                    'Accept': 'Application/json' // Accepting the response as json
+                    'Accept': 'Application/json' 
                 }
             }) 
-            const data = await response.json() // converting the response into json it takes time so await is used. If await is not used it will return a promise with state pending
+            const data = await response.json()
             return(data)
         }
         catch(err)
@@ -50,13 +53,24 @@
             const response = await fetch(API_URL,{
                 method:'POST',
                 headers: {
-                    'Content-Type' : 'Application/json' // posting the data into json server so the content type is mentioned as json 
+                    'Content-Type' : 'Application/json' 
                 },
-                body: JSON.stringify(user) // converting the object user into json using stringify method. the content inside the body will be posted at the server
+                body: JSON.stringify(user) 
             })
         }
         catch(err)
         {
+            console.log(err)
+        }
+    }
+
+    const handleDelete = async(id)=>{
+        try{
+            const response = await fetch(`${API_URL}/${id}`,{
+                method:'DELETE' 
+             })
+        }
+        catch(err){
             console.log(err)
         }
     }

@@ -2,6 +2,7 @@
     const Name = document.getElementById('name')
     const Number = document.getElementById('number')
     const Button = document.getElementById('submit')
+    const updateButton = document.getElementById('upbtn')
     const Table = document.getElementById('table')
     const databutton = document.getElementById('getdata')
     const API_URL = "http://localhost:3000/users"
@@ -17,6 +18,23 @@
         }
         handlePost(user)
     })
+    const handlePost = async(user) => {
+        try
+        {
+            const response = await fetch(API_URL,{
+                method:'POST',
+                headers: {
+                    'Content-Type' : 'Application/json' 
+                },
+                body: JSON.stringify(user) 
+            })
+        }
+        catch(err)
+        {
+            console.log(err)
+        }
+    }
+
 
     databutton.addEventListener('click', async () =>{
         const data = await handleGet()
@@ -24,7 +42,7 @@
             const newRow = `<tr>
             <td>${e.name}</td>
             <td>${e.number}</td>
-            <td><button onclick="handleDelete(${e.id})">Delete</button></td>
+            <td><button onclick="handleEdit(${e.id},'${e.name}','${e.number}')">Edit</button><button onclick="handleDelete(${e.id})">Delete</button></td>
             </tr>`
             Table.innerHTML += newRow
         })
@@ -46,23 +64,6 @@
             console.log(err)
         }
     }
-    
-    const handlePost = async(user) => {
-        try
-        {
-            const response = await fetch(API_URL,{
-                method:'POST',
-                headers: {
-                    'Content-Type' : 'Application/json' 
-                },
-                body: JSON.stringify(user) 
-            })
-        }
-        catch(err)
-        {
-            console.log(err)
-        }
-    }
 
     const handleDelete = async(id)=>{
         try{
@@ -71,6 +72,43 @@
              })
         }
         catch(err){
+            console.log(err)
+        }
+    }
+    const handleEdit = (id,name,number) => {
+        uid = id
+        Name.value = name
+        Number.value = number
+        Button.style.display = 'none'
+        updateButton.style.display = 'block'
+    }
+    
+    updateButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        const editedUser = {
+            id: `${uid}`,
+            name : `${Name.value}`,
+            number : `${Number.value}`
+        }
+        console.log(editedUser)
+        handleJsonEdit(editedUser)
+        Name.value = ''
+        Number.value = ''
+    })
+    
+    const handleJsonEdit = async (user) => {
+        try
+        {
+            const response = await fetch(`${API_URL}/${uid}`,{ 
+                method: 'PUT',
+                headers: {
+                    'Content-Type' : 'Application/json'
+                },
+                body : JSON.stringify(user)
+            })
+        }
+        catch(err)
+        {
             console.log(err)
         }
     }

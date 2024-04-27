@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(48, 41, 41);
+}
 .table{
     margin-top: 5%;
 }
@@ -6,4 +9,65 @@
     border: 1px solid #000;
     border-collapse: collapse;
     width: 500px;
+}
+.cont{
+    border:2px solid black;
+    border-radius:5px;
+    margin-top:5%;
+    margin-left: 40%;
+    width:25%;
+    height: 250px;
+}
+.cont input{
+    margin-left: 10.5%;
+}
+.cont  #name{
+    width:75%;
+    height:25px;
+    border-radius: 5px;
+    margin-top: 11%;
+}
+.cont #name::placeholder{
+    font-size:12px;
+    color:rgb(211, 211, 211);
+}
+.cont  #number{
+    width:75%;
+    height:25px;
+    border-radius: 5px;
+    margin-top: 5%;
+}
+.cont #number::placeholder{
+    font-size:12px;
+    color:rgb(211, 211, 211);
+}
+.cont  #submit{
+    width:25%;
+    height:25px;
+    margin-top: 5%;
+    border-radius: 5px;
+    margin-left:37.5%;
+    color:white;
+    background-color: rgb(102, 199, 102);
+}
+.table{
+    margin-left: 36%;
+    color:white;
+    font-size: 16px;
+}
+.table #getdata{
+    position: absolute;
+    margin-left: 40%;
+    border-radius: 5px;
+    margin-top:-0.01% ;
+    height:25px;
+}
+.table th{
+    height:25px;
+}
+.table tr,th,td{
+    border:1px solid white;
+}
+button{
+    background-color: rgb(210, 73, 73);
 }

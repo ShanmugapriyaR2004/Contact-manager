@@ -40,9 +40,9 @@
         const data = await handleGet()
         data.forEach(e => {
             const newRow = `<tr>
-            <td>${e.name}</td>
+            <td> <img src="icons/icon2.png">  ${e.name}</td>
             <td>${e.number}</td>
-            <td><button onclick="handleEdit(${e.id},'${e.name}','${e.number}')">Edit</button><button onclick="handleDelete(${e.id})">Delete</button></td>
+            <button class ="edit" onclick="handleEdit(${e.id},'${e.name}','${e.number}')">Edit</button><button class="Delete" onclick="handleDelete(${e.id})">Delete</button>
             </tr>`
             Table.innerHTML += newRow
         })

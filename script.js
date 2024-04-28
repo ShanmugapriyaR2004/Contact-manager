@@ -2,7 +2,7 @@
     const Name = document.getElementById('name')
     const Number = document.getElementById('number')
     const Button = document.getElementById('submit')
-    const updateButton = document.getElementById('upbtn')
+    const updateButton = document.getElementById('update')
     const Table = document.getElementById('table')
     const databutton = document.getElementById('getdata')
     const API_URL = "http://localhost:3000/users"

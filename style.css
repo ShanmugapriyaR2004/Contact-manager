@@ -51,6 +51,11 @@ body{
     color:white;
     background-color: rgb(102, 199, 102);
 }
+.cont #update{
+    border-radius:5px;
+    margin-left: 40%;
+    margin-top: 10%;
+}
 .table{
     margin-left: 33%;
     color:white;

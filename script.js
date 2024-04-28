@@ -84,7 +84,6 @@
     }
     
     updateButton.addEventListener('click', (e) => {
-        e.preventDefault()
         const editedUser = {
             id: `${uid}`,
             name : `${Name.value}`,

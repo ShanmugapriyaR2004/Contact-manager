@@ -1,1 +1,1 @@
-https://astonishing-croissant-efa923.netlify.app
+https://jolly-cranachan-86783e.netlify.app
